@@ -1,0 +1,14 @@
+# HTTP Request
+
+# Middleware: Request Handling
+
+A web application is  just a bunch of functions that get registered to handle requests in a certain order. Then, when a request comes in ASP.NET simply creates a new instance of this pipeline and populates it with these functions.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9e4a4771-2cd9-4132-9c0a-6acf9f494d45/Screen_Shot_2019-11-01_at_9.19.39_AM.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9e4a4771-2cd9-4132-9c0a-6acf9f494d45/Screen_Shot_2019-11-01_at_9.19.39_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220313T034313Z&X-Amz-Expires=86400&X-Amz-Signature=cc25061b80697f3273a44976cc6a21228d09eb87e727b1afa377994516e629ae&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen_Shot_2019-11-01_at_9.19.39_AM.png%22&x-id=GetObject)
+
+Then calls each of them, one after another, giving each one an opportunity to modify the request or perform some action before the response is sent back to the user. The interesting thing about this process is that none of the functions know anything about each other. They just execute their own logic and that's it.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5f73672f-7cf2-4fc0-a8a6-b5ae1fab7f90/Screen_Shot_2019-11-01_at_9.21.23_AM.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5f73672f-7cf2-4fc0-a8a6-b5ae1fab7f90/Screen_Shot_2019-11-01_at_9.21.23_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220313T034325Z&X-Amz-Expires=86400&X-Amz-Signature=733805ee03d2020b76747825f627aa2dff933ea3fb1ea67330f15aab9080d948&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen_Shot_2019-11-01_at_9.21.23_AM.png%22&x-id=GetObject)
+
+Following this approach often leads to creating middleware functions that are general enough that they may be reused in many different applications.
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5f73672f-7cf2-4fc0-a8a6-b5ae1fab7f90/Screen_Shot_2019-11-01_at_9.21.23_AM.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5d1894de-f36e-440d-8c15-f136849d988a/Screen_Shot_2019-11-01_at_9.23.32_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220313%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220313T034343Z&X-Amz-Expires=86400&X-Amz-Signature=6343ad052a36d5732ab7abcbbac096e944b0e4dfdbc9923e7db32a643a205ad4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen_Shot_2019-11-01_at_9.23.32_AM.png%22&x-id=GetObject)
