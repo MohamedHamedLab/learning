@@ -1,5 +1,6 @@
 {
     "cSpell.ignoreWords": [
         "الاطباق"
-    ]
+    ],
+    "jest.jestCommandLine": "jestDebug"
 }
